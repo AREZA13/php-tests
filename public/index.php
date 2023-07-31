@@ -4,19 +4,10 @@ declare(strict_types=1);
 // что он падает из-за проваленных assert.
 //  Затем  пишем тело функции и "чиним" все ассерты
 
-function factorial(int $n): int
-{
-    $sum = 1;
-    for ($i = 1; $i <= $n; $i++) {
-        $sum = $sum * $i;
-    }
-    return $sum;
-}
+//use classes\Test1;
+//use classes\Test2;
 
 
-assert(factorial(0) == 1);
-assert(factorial(1) == 1);
-assert(factorial(4) == 24);
 
 /*
 2) логика моя.Создать функцию even_to_zero(int $number)
@@ -95,6 +86,7 @@ function array_double(array $array): array
     foreach ($array as &$value) {
         $value = $value * 2;
     }
+
     return $array;
 }
 
