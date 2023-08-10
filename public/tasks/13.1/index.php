@@ -1,5 +1,17 @@
 <?php
 
+/*Создать интерфейс Operation с методом calculate. Создать классы имплементирующие этот интерфейс(Plus, Minus, Mult, Div), каждый класс в конструктор принимает 2 числа и каждый класс реализует метод calculate по-своему. Создайте класс Calculator устроенный согласно шаблоны Fluent interface. Сделайте так, чтобы код из примера заработал. Допишите своих тестов.
+
+```php
+$calculator = new Calculator();
+assert(
+    $calculator->firstNumber(2)
+        ->secondNumber(2)
+        ->operation(Mult::class)
+        ->result() == 4
+
+);*/
+
 use App\Calculator;
 use App\Div;
 use App\Minus;
