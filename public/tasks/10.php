@@ -7,15 +7,16 @@ function create_min_max_validator(int $min, int $max)
 {
     return function ($inputNumber) use ($min, $max) {
         if ($inputNumber <= $max && $inputNumber >= $min) {
-            echo "Number ($inputNumber) is in range" . "<br>";
+            return true;
         } else {
-            echo "Number ($inputNumber) is not in range" . "<br>";
+            return false;
         }
     };
-
 }
 
 $validator = create_min_max_validator(2, 5);
-$validator(10);
-$validator(2);
-$validator(3);
+assert($validator(10) === false);
+assert($validator(2) === true);
+assert($validator(3) === true);
+
+//php -d assert.active=1 -d assert.exception=1 10.php

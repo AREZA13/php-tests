@@ -5,10 +5,10 @@
 $arr = [1, 2, 3, 4];
 function add_item(&$arr, $item)
 {
-    array_push($arr, $item);
-
+    $arr[] = $item;
 }
 
 add_item($arr, 10);
 
-print_r($arr);
+var_dump(($arr), assert($arr) == [1, 2, 3, 4, 10]);
+//php -d assert.active=1 -d assert.exception=1 9.php

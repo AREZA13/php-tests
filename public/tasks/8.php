@@ -12,4 +12,5 @@ function sumn(int $n)
 assert(sumn(2) == 3);
 assert(sumn(3) == 6);
 
-echo sumn(2);
+var_dump(sumn(2), assert(sumn(2) == 3), assert(sumn(3) == 6));
+//php -d assert.active=1 -d assert.exception=1 8.php

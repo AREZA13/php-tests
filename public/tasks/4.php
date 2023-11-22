@@ -21,4 +21,5 @@ function divisible_by_three(int $max, int $min): array
     return $three_divided_range;
 }
 
-print_r(divisible_by_three(1002, 0));
+var_dump(assert(divisible_by_three(1002, 1002) == [1002]), assert(divisible_by_three(333, 333) == [333]));
+//php -d assert.active=1 -d assert.exception=1 4.php

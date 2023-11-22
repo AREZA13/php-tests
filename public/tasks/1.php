@@ -13,8 +13,8 @@ function factorial(int $n): int
     return $sum;
 }
 
-
-
 assert(factorial(0) == 1);
 assert(factorial(1) == 1);
 assert(factorial(4) == 24);
+
+//php -d assert.active=1 -d assert.exception=1 your_script.php

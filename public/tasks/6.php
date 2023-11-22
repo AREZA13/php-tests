@@ -8,11 +8,11 @@ function min_even(array $arr): int
     $arrayWithEven = array();
     foreach ($arr as $num) {
         if ($num != 0 && $num % 2 == 0) {
-            array_push($arrayWithEven, $num);
+            $arrayWithEven[] = $num;
         }
     }
-    $min = min($arrayWithEven);
-    return $min;
+    return min($arrayWithEven);
 }
 
-echo min_even([1, 2, 4, 5, 3, 2, 3, 0]);
+var_dump(min_even([1, 2, 4, 5, 3, 2, 3, 0]), assert(min_even([1, 2, 3, 4, 5, 6]) == 2));
+//php -d assert.active=1 -d assert.exception=1 6.php

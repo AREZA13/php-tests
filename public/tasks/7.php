@@ -17,4 +17,6 @@ function min_sum_elements(array $arr): array
     return $minPara;
 }
 
-print_r(min_sum_elements([1, 2, 4, 5, 12, 342, 5, 0, 1]));
+var_dump(min_sum_elements([1, 2, 4, 5, 12, 342, 5, 0, 1]), assert(min_sum_elements([1, 2, 4, 5, 12, 342, 5, 0, 1]) == [0, 1]));
+//php -d assert.active=1 -d assert.exception=1 7.php
+
