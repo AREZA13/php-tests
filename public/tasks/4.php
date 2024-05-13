@@ -13,7 +13,7 @@ function divisible_by_three(int $max, int $min): array
 
     $three_divided_range = array();
     foreach ($sortedNumbers as $number) {
-        if ($number % 3 == 0) {
+        if ($number % 3 === 0) {
             array_push($three_divided_range, $number);
         }
 
@@ -23,3 +23,13 @@ function divisible_by_three(int $max, int $min): array
 
 var_dump(assert(divisible_by_three(1002, 1002) == [1002]), assert(divisible_by_three(333, 333) == [333]));
 //php -d assert.active=1 -d assert.exception=1 4.php
+
+
+/*Легко? - тогда попробуйте решить задачи так, чтобы тело всех функций начиналось с return. Не используйте call_user_func.*/
+
+function divisible_by_threeDecloration(int $max, int $min): array
+{
+    return array_filter(range($max, $min), fn($number) => $number % 3 === 0);
+
+}
+var_dump(divisible_by_threeDecloration(150,100));
