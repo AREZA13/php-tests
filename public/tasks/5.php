@@ -15,3 +15,13 @@ function count_even(array $arr): int
 }
 
 var_dump(count_even([1, 2, 3, 4, 5, 6]), assert(count_even([1, 2, 3, 4, 5, 6]) == 3));
+
+
+/* тогда попробуйте решить задачи так, чтобы тело всех функций начиналось с return. Не используйте call_user_func.*/
+function count_evenDeclarative(array $arr): int
+{
+    return count(array_filter($arr, fn($number) => $number % 2 === 0));
+}
+
+
+
