@@ -16,3 +16,12 @@ function min_even(array $arr): int
 
 var_dump(min_even([1, 2, 4, 5, 3, 2, 3, 0]), assert(min_even([1, 2, 3, 4, 5, 6]) == 2));
 //php -d assert.active=1 -d assert.exception=1 6.php
+
+
+function min_even2(array $arr): int
+{
+    return min(array_filter($arr, fn($number) => $number !== 0 && $number % 2 === 0));
+}
+var_dump(min_even2([1, 2, 4, 5, 3, 2, 3, 0]), assert(min_even([1, 2, 3, 4, 5, 6]) == 2));
+
+
