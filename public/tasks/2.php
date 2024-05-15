@@ -36,3 +36,15 @@ function evenToZero2(int $number): int
 
 var_dump(evenToZero2(12345), assert(evenToZero2(12345) == 10305), assert(evenToZero2(666666) == 606060));
 //php -d assert.active=1 -d assert.exception=1 2.php
+
+//Declarative paradigm 
+function evenToZeroWithDeclarativeParadigm(int $number): int
+{
+    return (int)implode("", array_map(
+        static function ($index, $digit) {
+            return $index % 2 === 1 ? 0 : $digit;
+        },
+        array_keys(str_split($number)),
+        str_split($number)
+    ));
+}
