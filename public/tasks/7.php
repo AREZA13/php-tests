@@ -21,7 +21,7 @@ function min_sum_elements(array $arr): array
 var_dump(min_sum_elements([1, 2, 4, 5, 12, 342, 5, 0, 1]), assert(min_sum_elements([1, 2, 4, 5, 12, 342, 5, 0, 1]) == [0, 1]));
 //php -d assert.active=1 -d assert.exception=1 7.php
 
-/*SOLVED TASK USING Declarative programming PARADIGM /*
+/*SOLVED TASK USING Declarative programming PARADIGM */
 function min_sum_elements2(array $arr): array
 {
     return array_filter($arr,
