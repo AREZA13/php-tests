@@ -37,7 +37,45 @@ function evenToZero2(int $number): int
 var_dump(evenToZero2(12345), assert(evenToZero2(12345) == 10305), assert(evenToZero2(666666) == 606060));
 //php -d assert.active=1 -d assert.exception=1 2.php
 
-//Declarative paradigm 
+//Best One without bugs.
+function evenToZero3(int $n): int // [1234567]
+{
+    if ($n % 2 === 0) {
+        $cnt_n = floor(log10($n)) + 1; // 6+
+        $a = array_fill(0, $cnt_n, 0); // [0,0,0,0,0,0]
+        $return_value = 0;
+        foreach ($a as $key => $value) {
+            // $key = 1 вторая итерация
+            $exponent = $key + 1; // 2
+            $divider = 10 ** $exponent; // 100
+            $new_value = $n % $divider; // 123'456 % 100 = 56
+            $new_value = floor($new_value / 10 ** $key); // 56 / 10 ~ 5
+            $a[$key] = $new_value;
+            $return_value += ($key % 2) ? $new_value * 10 ** $key : 0;
+        }
+        return $return_value;
+    }
+
+        $n *= 10;
+        $cnt_n = floor(log10($n)) + 1;
+        $a = array_fill(0, $cnt_n, 0); // [0,0,0,0,0,0]
+        $return_value = 0;
+        foreach ($a as $key => $value) {
+            // $key = 1 вторая итерация
+            $exponent = $key + 1; // 2
+            $divider = 10 ** $exponent; // 100
+            $new_value = $n % $divider; // 123'456 % 100 = 56
+            $new_value = floor($new_value / 10 ** $key); // 56 / 10 ~ 5
+            $a[$key] = $new_value;
+            $return_value += ($key % 2) ? $new_value * 10 ** $key : 0;
+        }
+
+        return $return_value/10;
+
+}
+print("evenToZero3 result is: " . evenToZero3(1234567) . PHP_EOL);
+
+//Declarative paradigm  ! (Problems with big numbers!!!! TODO
 function evenToZeroWithDeclarativeParadigm(int $number): int
 {
     return (int)implode("", array_map(
