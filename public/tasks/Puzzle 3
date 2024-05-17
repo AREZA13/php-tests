@@ -28,3 +28,16 @@ function sum_intersect2(array $arr1, array $arr2): int
 }
 var_dump(sum_intersect2($arr1 , $arr1));
 var_dump(assert(sum_intersect2(7) == true));
+
+
+/*SOLVED TASK USING Declarative programming PARADIGM */
+/* 2 Напишите функцию sum_n_elements(array $arr, int $n): int, которая считает сумму первых $n элементов массива.
+Например: Для массива [1, 2, 3, 4] при $n = 2 сумма первых элементов равна 3. */
+
+$arr = [1, 2, 3, 4];
+$n = 2;
+function sum_n_elements(array $arr, int $n): int
+{
+    return array_sum(array_slice($arr, 0, $n));
+}
+var_dump(sum_n_elements($arr , $n));
