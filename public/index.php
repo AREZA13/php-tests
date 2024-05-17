@@ -77,6 +77,19 @@ function is_palindrome(string $word): bool
 assert(is_palindrome('шалаш') == true);
 assert(is_palindrome('такси') == false);
 
+//method body starts with return
+function is_palindroime2(string $word) : bool
+{
+    return empty(
+        array_diff_assoc(
+            array_reverse(mb_str_split(mb_strtolower($word))), mb_str_split(mb_strtolower($word))
+        )
+    );
+}
+assert(is_palindrome2('шалаШ') == true);
+assert(is_palindrome2('шалаш') == true);
+assert(is_palindrome2('такси') == false);
+
 
 //4) Написать функцию array_double, которая принимает на вход массив чисел, например [1,2,3]
 //и возвращает массив, в котором все числа умножены на 2, например [2, 4, 6]
