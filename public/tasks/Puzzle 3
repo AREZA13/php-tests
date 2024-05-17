@@ -41,3 +41,20 @@ function sum_n_elements(array $arr, int $n): int
     return array_sum(array_slice($arr, 0, $n));
 }
 var_dump(sum_n_elements($arr , $n));
+
+
+
+/*  3 Напишите функцию sum_of_pairs(array $arr): array, которая считает суммы соседних чисел в массиве.
+Например: для массива [1, 2, 3, 4, 5, 6] результат будет [3, 7, 11] */
+/*SOLVED TASK USING Declarative programming PARADIGM */
+
+$arr = [1, 2, 3, 4,  7, 5, 6,8, 9, 10, 11];
+function sum_of_pairs(array $arr): array
+{
+    return array_map(static function ($key) use ($arr) {
+        return $arr[$key] + $arr[$key + 1];
+    }, range(0, count($arr) - 2, 2));
+}
+
+var_dump(sum_of_pairs($arr));
+var_dump(assert(sum_of_pairs([3, 7, 1]) === true));
