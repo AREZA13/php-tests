@@ -90,6 +90,15 @@ assert(is_palindrome2('шалаШ') == true);
 assert(is_palindrome2('шалаш') == true);
 assert(is_palindrome2('такси') == false);
 
+//method body starts with return2
+function is_palindroime3(string $word) : bool
+{
+    return empty(
+    array_diff_assoc(
+        array_reverse(preg_split('//u', mb_strtolower($word), -1, PREG_SPLIT_NO_EMPTY)), preg_split('//u', mb_strtolower($word), -1, PREG_SPLIT_NO_EMPTY)
+    ));
+}
+
 
 //4) Написать функцию array_double, которая принимает на вход массив чисел, например [1,2,3]
 //и возвращает массив, в котором все числа умножены на 2, например [2, 4, 6]
